@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ملخص شامل عن قوالب جانغو وفلاتر DTL</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 30px;
+            color: #333;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 4px solid #2980b9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: right;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            direction: ltr;
+            display: inline-block;
+            border: 1px solid #bdc3c7;
+        }
+        ul {
+            list-style-type: none;
+            padding-right: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #34495e;
+        }
+        .example {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مقارنة شاملة بين أشهر محركات قوالب جانغو</h1>
+    <p>محرك القوالب هو المسؤول عن عرض البيانات الديناميكية داخل ملفات HTML. نستعرض هنا مقارنة بين أربعة من أشهر هذه المحركات.</p>
+
+    <h2>1. Django Template Language (DTL)</h2>
+    <p>هو المحرك الرسمي والمدمج في جانغو. فلسفته الأساسية هي فرض الفصل الصارم بين منطق العرض ومنطق العمل.</p>
+    <ul>
+        <li><strong>نقاط القوة:</strong> تكامل مثالي، سهولة التعلم، أمان عالي.</li>
+        <li><strong>نقاط الضعف:</strong> مرونة محدودة، الفشل الصامت (لا يطلق أخطاء للمتغيرات غير المعرفة).</li>
+    </ul>
+
+    <h2>2. Jinja2</h2>
+    <p>البديل الأكثر شعبية لـ DTL، مستوحى منه لكن مع مرونة أكبر وأداء أسرع.</p>
+    <ul>
+        <li><strong>نقاط القوة:</strong> أداء سريع، مرونة عالية، تصحيح أخطاء أفضل.</li>
+        <li><strong>نقاط الضعف:</strong> يتطلب إعداداً إضافياً.</li>
+    </ul>
+
+    <h2>3. Mako</h2>
+    <p>محرك قوالب عالي الأداء معروف بسرعته الفائقة وفلسفته التي تمنح المطور الحرية الكاملة لكتابة كود بايثون مباشرة داخل القوالب.</p>
+    <ul>
+        <li><strong>نقاط القوة:</strong> سرعة فائقة، قوة مطلقة ومرونة كاملة.</li>
+        <li><strong>نقاط الضعف:</strong> خطر خلط المنطق بالعرض، أقل شيوعاً في مجتمع جانغو.</li>
+    </ul>
+
+    <h3>جدول مقارنة سريع</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>الميزة</th>
+                <th>DTL (الافتراضي)</th>
+                <th>Jinja2</th>
+                <th>Mako</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>الفلسفة</strong></td>
+                <td>فصل صارم بين المنطق والعرض</td>
+                <td>مرونة مع الحفاظ على الأمان</td>
+                <td>حرية مطلقة (بايثون في القالب)</td>
+            </tr>
+            <tr>
+                <td><strong>الأداء</strong></td>
+                <td>جيد</td>
+                <td>سريع جداً</td>
+                <td>الأسرع غالباً</td>
+            </tr>
+            <tr>
+                <td><strong>سهولة الاستخدام</strong></td>
+                <td>سهل جداً للمبتدئين</td>
+                <td>سهل، مشابه لـ DTL</td>
+                <td>يتطلب خبرة في بايثون</td>
+            </tr>
+            <tr>
+                <td><strong>تصحيح الأخطاء</strong></td>
+                <td>صعب (يفشل بصمت)</td>
+                <td>ممتاز (يطلق أخطاء)</td>
+                <td>ممتاز</td>
+            </tr>
+            <tr>
+                <td><strong>أفضل استخدام</strong></td>
+                <td>المشاريع البسيطة</td>
+                <td>معظم المشاريع (توازن مثالي)</td>
+                <td>المشاريع التي تتطلب أقصى أداء</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h1>ملخص شامل لفلاتر Django Template Language (DTL)</h1>
+    <p>الفلاتر هي أدوات بسيطة تستخدم لتعديل شكل عرض المتغيرات في القالب. الصيغة العامة لاستخدامها هي <code>{{ variable|filter_name }}</code>.</p>
+
+    <h2>1. فلاتر التعامل مع النصوص</h2>
+    <ul>
+        <li><strong>upper:</strong> لتحويل كل الحروف إلى حروف كبيرة. <span class="example">مثال: <code>{{ "hello"|upper }}</code> ← HELLO</span></li>
+        <li><strong>lower:</strong> لتحويل كل الحروف إلى حروف صغيرة. <span class="example">مثال: <code>{{ "HELLO"|lower }}</code> ← hello</span></li>
+        <li><strong>title:</strong> لتحويل الحرف الأول من كل كلمة إلى حرف كبير. <span class="example">مثال: <code>{{ "hello world"|title }}</code> ← Hello World</span></li>
+        <li><strong>truncatewords:</strong> لقطع النص بعد عدد معين من الكلمات. <span class="example">مثال: <code>{{ "هذه جملة طويلة جدا"|truncatewords:2 }}</code> ← هذه جملة...</span></li>
+        <li><strong>slugify:</strong> لتحويل النص إلى صيغة مناسبة للروابط (URL). <span class="example">مثال: <code>{{ "My New Post!"|slugify }}</code> ← my-new-post</span></li>
+    </ul>
+
+    <h2>2. فلاتر التعامل مع القوائم</h2>
+    <ul>
+        <li><strong>length:</strong> لإرجاع عدد العناصر في القائمة.</li>
+        <li><strong>first:</strong> لإرجاع العنصر الأول في القائمة.</li>
+        <li><strong>last:</strong> لإرجاع العنصر الأخير في القائمة.</li>
+        <li><strong>join:</strong> لربط عناصر القائمة بنص معين. <span class="example">مثال: <code>{{ ["a", "b"]|join:" - " }}</code> ← a - b</span></li>
+    </ul>
+
+    <h2>3. فلاتر التعامل مع التواريخ والأوقات</h2>
+    <ul>
+        <li><strong>date:</strong> لتنسيق عرض التاريخ والوقت. <span class="example">مثال: <code>{{ my_date|date:"Y-m-d" }}</code></span></li>
+        <li><strong>timesince:</strong> لعرض المدة التي مضت منذ تاريخ معين. <span class="example">مثال: "منذ 5 ساعات"</span></li>
+    </ul>
+
+    <h2>4. فلاتر أخرى مهمة</h2>
+    <ul>
+        <li><strong>default:</strong> لتحديد قيمة افتراضية إذا كان المتغير فارغاً. <span class="example">مثال: <code>{{ my_var|default:"لا يوجد" }}</code></span></li>
+        <li><strong>filesizeformat:</strong> لتحويل رقم (بايت) إلى صيغة سهلة القراءة. <span class="example">مثال: <code>{{ 1234567|filesizeformat }}</code> ← 1.2 MB</span></li>
+        <li><strong>safe:</strong> لوضع علامة على نص HTML بأنه "آمن". <strong style="color:red;">(استخدمه بحذر!)</strong></li>
+    </ul>
+
+</body>
+</html>
